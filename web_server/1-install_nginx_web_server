@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-# installs nginx on a remote server and configures it
-sudo apt update
-sudo apt install nginx -y
-sudo touch /var/www/html/index.html
-echo "Holberton School" | sudo tee /var/www/html/index.html
-sudo service nginx restart
+
+# This script installs Nginx on an Ubuntu machine and configures it to return "Holberton School" on the root path
+
+# Update package lists and install Nginx
+apt-get update
+apt-get install -y nginx
+
+# Modify the default Nginx page to contain "Holberton School"
+echo "Holberton School" > /var/www/html/index.html
+
+# Restart Nginx to apply changes
+service nginx restart
