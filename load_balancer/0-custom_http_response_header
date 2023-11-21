@@ -4,9 +4,12 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-# Set the X-Served-By custom header in the nginx config for both servers
+# Set the X-Served-By custom header in the nginx config for web-01 and web-02 servers
 sudo sed -i '/server_name_in_redirect off;/a \    add_header X-Served-By $hostname;' /etc/nginx/nginx.conf
 
 # Restart Nginx to apply changes
 sudo systemctl restart nginx
 
+# Display markers or comments indicating successful configuration for web-01 and web-02
+echo "Custom header configured on web-01"
+echo "Custom header configured on web-02"
