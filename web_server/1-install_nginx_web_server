@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
-
-# This script installs Nginx on an Ubuntu machine and configures it to return "Holberton School" on the root path
-
-# Update package lists and install Nginx
-apt-get update
-apt-get install -y nginx
-
-# Modify the default Nginx page to contain "Holberton School"
-echo "Holberton School" > /var/www/html/index.html
-
-# Restart Nginx to apply changes
-service nginx restart
+#This installs Nginx on my web-01 server
+sudo apt-get update
+sudo apt-get install nginx -y
+sudo mkdir /var/www/html
+sudo touch /var/www/html/index.html
+sudo echo "Holberton School" > /var/www/html/index.html
+sudo service nginx start
