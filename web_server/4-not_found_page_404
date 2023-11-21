@@ -1,33 +1,24 @@
 #!/usr/bin/env bash
-#Custom 404 page
-sudo apt update -y
-sudo apt install nginx -y
+# Installs nginx web server
 
+apt-get update
+apt-get install -y nginx
+service nginx start
 mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-touch /etc/nginx/html/404.html
 echo "Holberton School" > /etc/nginx/html/index.html
 echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-
-# store configuration content
-new_config=\
-"server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-               root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-                try_files \$uri \$uri/ =404;
-        }
-        location /redirect_me { 
-            return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-        }
-	error_page 404 /404.html;
-	location /404 {
-	    internal;
-        }
-}
-"
-echo "$new_config" > /etc/nginx/sites-available/default
-sudo service nginx restart
+echo "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html;
+    location /redirect_me {
+        return 301 https://twitter.com/Emmanue17280546;
+    }
+    error_page 404 /404.html;
+    location = /404.html{
+        root /etc/nginx/html;
+        internal;
+    }
+}" > /etc/nginx/sites-available/default
+service nginx restart
