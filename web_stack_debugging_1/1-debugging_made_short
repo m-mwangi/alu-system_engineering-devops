@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stop Nginx service
-sudo service nginx stop
-service nginx status
-curl -I 127.0.0.1:80
+# Stop Nginx service using systemctl
+sudo systemctl stop nginx
+# Check Nginx status using systemctl
+sudo systemctl status nginx | grep -q "inactive"
