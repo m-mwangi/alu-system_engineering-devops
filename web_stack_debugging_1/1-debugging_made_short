@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-rm /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 sudo service nginx restart
 service nginx status
