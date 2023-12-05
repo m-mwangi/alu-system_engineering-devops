@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Stop Nginx service forcefully
-sudo killall nginx
+# Stop Nginx service using systemctl
+sudo systemctl stop nginx
 sleep 2
-service nginx status
-
+sudo systemctl status nginx
