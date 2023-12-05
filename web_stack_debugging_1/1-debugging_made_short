@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stop Nginx service using systemctl
-sudo systemctl stop nginx
+# Find the Nginx process ID
+sudo lsof -t -i:80 -sTCP:LISTEN | xargs -r sudo kill
 sleep 2
-sudo systemctl status nginx
+service nginx status
