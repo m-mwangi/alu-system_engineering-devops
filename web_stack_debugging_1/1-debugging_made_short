@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
-# Stop Nginx service and confirm it's not running
+# Stop Nginx service and check its status
 sudo service nginx stop
 service nginx status
