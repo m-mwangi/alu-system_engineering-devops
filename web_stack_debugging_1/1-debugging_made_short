@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# Symlink default Nginx config
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-# Restart Nginx service
-sudo service nginx restart
-# Stop Nginx service explicitly
-sudo service nginx stop
+# bash script that configures 'nginx' to run & listen to port 80
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+service nginx restart
+kill -9 "$(cat /run/nginx.pid)"
