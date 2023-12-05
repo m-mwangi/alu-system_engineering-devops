@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Find the Nginx process ID
-sudo lsof -t -i:80 -sTCP:LISTEN | xargs -r sudo kill
-sleep 2
+# Stop Nginx service
+sudo service nginx stop
 service nginx status
+curl -I 127.0.0.1:80
