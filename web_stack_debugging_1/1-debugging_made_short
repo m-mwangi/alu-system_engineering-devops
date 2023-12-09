@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#Make the codes short
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx restart
-kill "$(pgrep 'nginx' | head -1)"
+# Script to stop Nginx service and confirm its status
+service nginx stop
+# Check Nginx service status
+service nginx status
+
