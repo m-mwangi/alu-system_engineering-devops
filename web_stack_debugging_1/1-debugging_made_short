@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
-# Script to stop Nginx service and confirm its status
-service nginx stop
-# Check Nginx service status
-service nginx status
+#!/bin/bash
+if ! ps aux | grep -q '[n]ginx'; then
+    service nginx status | grep -q 'not running'
+    [ $? -eq 0 ] && echo "nginx is not running"
+fi
 
