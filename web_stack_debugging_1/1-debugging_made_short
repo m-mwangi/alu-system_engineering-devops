@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
+#make codes short
 rm /etc/nginx/sites-enabled/default
 ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-if ! service nginx status | grep -q 'not running'; then
-    sudo service nginx restart
-fi
+! service nginx status | grep -q 'not running' || sudo service nginx restart
