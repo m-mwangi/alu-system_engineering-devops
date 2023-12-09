@@ -1,6 +1,5 @@
-#!/bin/bash
-if ! ps aux | grep -q '[n]ginx'; then
-    service nginx status | grep -q 'not running'
-    [ $? -eq 0 ] && echo "nginx is not running"
-fi
-
+#!/usr/bin/env bash
+#Make the codes short
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
