@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stop Nginx service using systemctl
-sudo systemctl stop nginx
-# Check Nginx status using systemctl
-sudo systemctl status nginx | grep -q "inactive"
+#Make the codes short
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
+kill "$(pgrep 'nginx' | head -1)"
