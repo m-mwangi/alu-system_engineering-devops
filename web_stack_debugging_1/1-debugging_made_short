@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
+<<<<<<< HEAD
 
 # Stop Nginx service
 sudo service nginx stop
 
+=======
+# Configures an Nginx server to listen on port 80.
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
+kill "$(pgrep 'nginx' | head -1)"
+>>>>>>> f3c96d9af7355b9cb754b057353c30c92f97d5fb
