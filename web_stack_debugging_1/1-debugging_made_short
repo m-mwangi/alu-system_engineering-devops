@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Corrects configuration of nginx server to resolve bugs
-sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx restart
+# make fix on task 0 short and sweet.
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
+service nginx restart
 echo "" > /run/nginx.pid
